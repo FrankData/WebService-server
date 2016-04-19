@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:simple="http://cxf.apache.org/simple"
+      xmlns:soap="http://cxf.apache.org/bindings/soap"
+      xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
+http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd">
+<!--  <bean id="serverBean" class="org.apache.cxf.frontend.ServerFactoryBean" init-method="create" > -->
+<bean id="serverBean" class="org.apache.cxf.frontend.ServerFactoryBean" >
+ 	<property name="serviceClass" value="objService.spring.cxf.server.HelloWorld" />
+ 	<property name="address" value="http://localhost:8080/helloworld"/>
+ 	<property name="serviceBean" ref="hello" />
+ </bean>
+ <bean id = "hello" class="objService.spring.cxf.server.HelloWorldimpl" />
+ 
+<!--   <simple:server id="pojoservice" serviceClass="pure.java.server.HelloWorld" address="/hello_world"> -->
+<!--     <simple:serviceBean> -->
+<!--         <bean class="pure.java.server.HelloWorldimpl" /> -->
+<!--     </simple:serviceBean> -->
+<!--   </simple:server> -->
+</beans>

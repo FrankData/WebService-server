@@ -1,0 +1,30 @@
+Inbound Message
+----------------------------
+ID: 2
+Address: http://localhost:8080/helloworld
+Encoding: UTF-8
+Http-Method: POST
+Content-Type: text/xml;charset=UTF-8
+Headers: {accept-encoding=[gzip,deflate], connection=[keep-alive], Content-Length=[925], content-type=[text/xml;charset=UTF-8], Host=[localhost:8080], SOAPAction=[""], User-Agent=[Apache-HttpClient/4.1.1 (java 1.5)]}
+Payload: <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+		<wsse:Security
+			xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+			xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+			soap:mustUnderstand="1">
+			<wsse:UsernameToken
+				wsu:Id="UsernameToken-88649dfc-0d7c-45d7-80a1-1671f0c52a96">
+				<wsse:Username>joe</wsse:Username>
+				<wsse:Password
+					Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">passwordqq</wsse:Password>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</SOAP-ENV:Header>
+	<soap:Body>
+		<ns1:sayHi xmlns:ns1="http://server.cxf.spring.objService/">
+			<arg0 xmlns="http://server.cxf.spring.objService/">tester</arg0>
+		</ns1:sayHi>
+	</soap:Body>
+</soap:Envelope>
+
+--------------------------------------
